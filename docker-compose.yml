@@ -1,0 +1,34 @@
+# Docker Compose version 3.8 (standard widely used version)
+version: '3.8'
+
+# Define the "services" (parts) of our application.
+services:
+  # The name of our main web service
+  web:
+    # Build the image using the Dockerfile in the current directory (.)
+    build: .
+    
+    # Map port 3000 on your computer (Host) to port 3000 in the container (Guest)
+    # format: "HOST_PORT:CONTAINER_PORT"
+    ports:
+      - "3000:3000"
+    
+    # Set environment variables inside the container
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    
+    # Mount the specific yt-dlp binary if we want to overwrite it, 
+    # but usually, we trust the one built into the image.
+    # We can also mount the code for development (live reloading):
+    # volumes:
+    #   - .:/app
+    
+    # Restart the container automatically if it crashes
+    restart: always
+
+# In the future, we would add 'redis' or 'kafka' services here like this:
+#  redis:
+#    image: redis:alpine
+#    ports:
+#      - "6379:6379"

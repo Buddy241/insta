@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# System Files
+.DS_Store
+dist/
+build/
+
+# Binaries (Too large for Git)
+yt-dlp
+ffmpeg
+ffmpeg.zip
+
+# Downloads
+downloads/
+*.mp4
+*.mkv
